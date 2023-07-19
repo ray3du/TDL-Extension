@@ -1,0 +1,117 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Tally development language",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#control-statements"
+		},
+		{
+			"include": "#keyword-types"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#keyword-constants"
+		},
+		{
+			"include": "#file_strings"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.tdl",
+					"begin": ";.*$",
+					"end": "$"
+				},
+				{
+					"name": "comment.block.tdl",
+					"begin": "\\/\\*",
+					"end": "\\*\\/"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.tdl",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.tdl",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.single.tdl",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+					  {
+						"name": "constant.character.escape.tdl",
+						"match": "\\\\."
+					  }
+					]
+				}
+			]
+		},
+		"control-statements": {
+			"patterns": [
+				{
+					"name": "keyword.control.tdl",
+					"match": "\\b(If|while|for|return|RETURN|Walk Collection|End Walk|End If|End For|Do If|Else|Function|Parameter|Variable|System|Type|Add|Local|Use|Width|Show Table|Table|)\\b"
+				},
+				{
+					"name": "keyword.control.tdl",
+					"match": "\\b(Set as|Delete File|Truncate File|Write File Line|Write File|Close Target File|Import|Open File|Set|Set Always|SET)\\b",
+					"caseInsensitive": true
+				}
+			]
+		},
+		"keyword-types": {
+			"name": "keyword.type.tdl",
+			"match": "(?<=:\\s)(String|Number|Amount|Rate|Logical)(?=\\b)"
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.language.tdl",
+					"match": "\\b(Report|Form|Part|Field|Collection|Object|Line|Key|Option)\\b"
+				},
+				{
+					"name": "variable.tdl",
+					"match": "(?<=:\\s)[A-Za-z_][A-Za-z_0-9]*(?:\\s[A-Za-z_0-9]+)*\\b"
+				}
+			]
+		},
+		"keyword-constants": {
+			"name": "keyword.constant.tdl",
+        	"match": "\\b(True|False|Yes|No|And|Or)\\b",
+			"caseInsensitive": true
+		},
+		"file_strings": {
+			"patterns": [
+			  {
+				"name": "string.file.tdl",
+				"match": "\\b[A-Za-z_][A-Za-z_0-9\\-.]*\\.(xml|json)\\b"
+			}
+			]
+		}
+	},
+	"scopeName": "source.tpj"
+}
+
+

@@ -1,0 +1,25 @@
+{
+  "name": "tally-tdl",
+  "displayName": "Tally TDL",
+  "description": "Language support for tally development language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "tdl",
+      "aliases": ["Tally development language", "tdl"],
+      "extensions": [".tpj",".txt"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "tdl",
+      "scopeName": "source.tpj",
+      "path": "./syntaxes/tdl.tmLanguage.json"
+    }]
+  }
+}
